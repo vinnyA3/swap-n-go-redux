@@ -14,7 +14,6 @@
   "author": "vinnyA3",
   "license": "MIT",
   "dependencies": {
-    "fantasy-land": "^3.2.0",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
