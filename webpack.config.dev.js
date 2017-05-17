@@ -4,7 +4,7 @@ const webpack = require('webpack')
 module.exports = {
   context: __dirname,
   entry: [
-    './src/js/App.js'
+    './src/index.js'
   ],
   devtool: 'cheap-eval-source-map',
   output: {
