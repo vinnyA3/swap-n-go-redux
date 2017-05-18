@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-class App extends Component {
+class Home extends Component {
   bookRow (book) {
     return (
       <div key={book.id}>
@@ -20,7 +20,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+Home.propTypes = {
   books: PropTypes.array
 }
 
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(App)
+export default connect(mapStateToProps, null)(Home)
