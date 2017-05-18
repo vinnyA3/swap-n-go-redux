@@ -18,7 +18,8 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: false,
+    modules: false
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin()
