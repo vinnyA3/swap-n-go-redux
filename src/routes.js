@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import App from './components/App'
-import SignIn from './components/auth/Signin'
+import Home from './home/Home'
+import SignIn from './auth/Signin'
 
 export default (
   <div>
-    <Route exact path='/' component={App} />
+    <Route exact path='/' component={Home} />
     <Route path='/signin' component={SignIn} />
   </div>
 )
