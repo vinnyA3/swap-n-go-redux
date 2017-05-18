@@ -60,4 +60,16 @@ export default class BooksApi {
       }, delay)
     })
   }
+
+  static deleteBook (bookId) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const bookIndex = Books.findIndex(book => {
+          return book.id === bookId
+        })
+        Books.splice(bookIndex, 1)
+        resolve()
+      }, delay)
+    })
+  }
 }
