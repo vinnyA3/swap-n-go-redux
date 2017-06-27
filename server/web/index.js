@@ -2,7 +2,7 @@
 
 const http = require('http')
 const promisify = require('es6-promisify')
-const config = require('../config/config')
+const config = require('../config')
 const _ = require('ramda')
 const Task = require('data.task')
 const Either = require('data.either')
