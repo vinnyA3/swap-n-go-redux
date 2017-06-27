@@ -8,7 +8,7 @@ const { Left, Right } = Either
 
 const merge = e => e.merge()
 
-const safePropGet = _.curry((prop, obj) => {
+const safeGetProp = _.curry((prop, obj) => {
   const property = _.prop(prop, obj)
   return _.isNil(property) ? Left(`Prop Not Found: ${prop}`) : Right(property)
 })
@@ -16,7 +16,7 @@ const safePropGet = _.curry((prop, obj) => {
 const argv = new Task((rej, res) => res(process.env))
 
 const env = argv
-  .map(safePropGet('PORT'))
+  .map(safeGetProp('PORT'))
   .map(e => e.isLeft ? Right('8080') : e)
   .map(e => merge(e))
   .map(port => ({ server: { port } }))
