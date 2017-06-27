@@ -17,7 +17,7 @@ const argv = new Task((rej, res) => res(process.env))
 
 const env = argv
   .map(safeGetProp('PORT'))
-  .map(e => e.isLeft ? Right('8080') : e)
+  .map(e => e.isLeft ? Right('8080') : e) // SET DEFAULT PORT
   .map(e => merge(e))
   .map(port => ({ server: { port } }))
 
