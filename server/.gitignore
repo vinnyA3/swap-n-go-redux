@@ -3,4 +3,5 @@
 
 # misc
 .env
+test.js
 npm-debug.log*
