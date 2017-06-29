@@ -2,26 +2,21 @@
 
 const Task = require('data.task')
 const Either = require('data.either')
-const _ = require('ramda')
-
 const { Left, Right } = Either
+const { safeGetProp, eitherToTask } = require('../../utils')
 
-const merge = e => e.merge()
-
-const safeGetProp = _.curry((prop, obj) => {
-  const property = _.prop(prop, obj)
-  return _.isNil(property) ? Left(`Prop Not Found: ${prop}`) : Right(property)
-})
 
 const argv = new Task((rej, res) => res(process.env))
 
-const env = argv
+const serverPort = argv
   .map(safeGetProp('PORT'))
-  .map(e => e.isLeft ? Right('8080') : e) // SET DEFAULT PORT
-  .map(e => merge(e))
+  .chain(eitherToTask)
   .map(port => ({ server: { port } }))
 
-
-env.fork(console.error, obj => {
-  module.exports = obj
+// To keep index file clean, perform fork logic here
+serverPort.fork(e => {
+  console.error(e)
+  process.exit(1)
+}, serverObject => {
+  module.exports = serverObject  
 })
