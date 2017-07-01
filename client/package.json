@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "build": "webpack --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
     "open:src": "babel-node buildScripts/server.js",
     "format": "prettier --write --single-quote --parser=flow --tab-width=2 --print-width=120 \"src/**/*.{js,jsx}\"",
-    "lint": "esw src/js/**/*.js",
-    "lint:watch": "npm run lint -- -w",
-    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "lint": "./node_modules/.bin/eslint ./src/**/*.{js,jsx} --quiet"
   },
   "author": "vinnyA3",
   "license": "MIT",
