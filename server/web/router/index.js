@@ -1,9 +1,13 @@
-'use strict'
+'use strict';
 
-const router = require('express').Router()
+const router = require('express').Router();
+const api = require('./api');
 
+// endpoints
 router.get('/', (req, res) => {
-  res.status(200).send({ status: 'Okay', message: 'welcome!'})
-})
+  res.status(200).send({ status: 'Okay', message: 'welcome!' });
+});
 
-module.exports = router
+router.get('/api/v1/books', api.books.getAllBooks);
+
+module.exports = router;
